@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        //store the elements of the binary tree in inorder traversal order.
+        List<Integer> result = new ArrayList<>();
+        inorderHelper(root, result);
+        return result;
+    }
+
+    private void inorderHelper(TreeNode node, List<Integer> result) {
+        if (node != null) {
+            // Visit left subtree
+            inorderHelper(node.left, result);
+            
+            // Visit the current node (root)
+            result.add(node.val);
+            
+            // Visit right subtree
+            inorderHelper(node.right, result);
+        }
+    }
+}
